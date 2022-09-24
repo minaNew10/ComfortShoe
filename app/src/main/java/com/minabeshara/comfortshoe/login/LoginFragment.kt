@@ -40,6 +40,7 @@ class LoginFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        (requireActivity() as AppCompatActivity).supportActionBar?.show()
     }
 
     private fun navigateToWelcomeScreen(){

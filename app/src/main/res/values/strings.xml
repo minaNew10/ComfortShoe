@@ -9,4 +9,10 @@
     <string name="welcome_title">Welcome \n To \n Your Comfort</string>
     <string name="welcome_text">You may need to tie \n but in all cases you will feel free</string>
     <string name="start_your_journey">Start your journey</string>
+    <string name="instructions_title">Instructions</string>
+    <string name="instructions_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt \n
+    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip \n
+    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
+    <string name="start_the_show">Start The Show</string>
 </resources>

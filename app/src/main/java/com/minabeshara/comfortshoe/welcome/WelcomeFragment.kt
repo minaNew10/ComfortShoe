@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.minabeshara.comfortshoe.R
-
+import com.minabeshara.comfortshoe.databinding.FragmentWelcomeBinding
+import com.minabeshara.comfortshoe.login.LoginFragmentDirections
 
 
 class WelcomeFragment : Fragment() {
@@ -22,12 +25,18 @@ class WelcomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_welcome, container, false)
+        val binding :FragmentWelcomeBinding = DataBindingUtil.inflate(layoutInflater,R.layout.fragment_welcome,container,false)
+        binding.btnStart.setOnClickListener {
+            navigateToInstructionsScreen()
+        }
+        return binding.root
     }
 
     override fun onResume() {
         super.onResume()
-        (requireActivity() as AppCompatActivity).supportActionBar?.show()
+    }
+
+    private fun navigateToInstructionsScreen(){
+        findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToInstructionsFragment())
     }
 }
