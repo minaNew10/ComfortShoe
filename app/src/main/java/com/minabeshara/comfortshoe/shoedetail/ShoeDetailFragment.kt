@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.minabeshara.comfortshoe.R
+import com.minabeshara.comfortshoe.ShoeViewModel
 import com.minabeshara.comfortshoe.databinding.FragmentShoeDetailBinding
+import com.minabeshara.comfortshoe.models.Shoe
 import com.minabeshara.comfortshoe.shoelist.ShoeListFragmentDirections
 
 
@@ -19,6 +22,7 @@ class ShoeDetailFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
     }
+    private val viewModel : ShoeViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +30,9 @@ class ShoeDetailFragment : Fragment() {
     ): View? {
         val binding: FragmentShoeDetailBinding =
             DataBindingUtil.inflate(layoutInflater, R.layout.fragment_shoe_detail, container, false)
+
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.btnCancel.setOnClickListener {
             navigateToListScreen()
         }
