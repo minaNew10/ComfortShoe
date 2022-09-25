@@ -47,19 +47,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/email"
-            android:textSize="20sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/et_email"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/tv_label" />
 
         <TextView
             android:id="@+id/textView3"
+            style="@style/tv_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/password"
-            android:textSize="20sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/et_psswrd"
-            app:layout_constraintEnd_toEndOf="@+id/textView2"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText

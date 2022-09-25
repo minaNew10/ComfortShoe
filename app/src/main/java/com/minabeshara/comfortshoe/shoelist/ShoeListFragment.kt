@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.minabeshara.comfortshoe.R
+import com.minabeshara.comfortshoe.databinding.FragmentShoeListBinding
+import com.minabeshara.comfortshoe.login.LoginFragmentDirections
 
 
 class ShoeListFragment : Fragment() {
@@ -19,8 +23,17 @@ class ShoeListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shoe_list, container, false)
+
+        val binding : FragmentShoeListBinding = DataBindingUtil.inflate(inflater,
+                    R.layout.fragment_shoe_list,container,false)
+        binding.floatingActionButton.setOnClickListener {
+            navigateToDetailsScreen()
+        }
+        return binding.root
+    }
+
+    private fun navigateToDetailsScreen() {
+        findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment())
     }
 
 
