@@ -38,10 +38,7 @@ class LoginFragment : Fragment() {
         return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
-        (requireActivity() as AppCompatActivity).supportActionBar?.show()
-    }
+
 
     private fun navigateToWelcomeScreen(){
         findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
