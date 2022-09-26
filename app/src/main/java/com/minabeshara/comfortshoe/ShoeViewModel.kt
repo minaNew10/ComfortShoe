@@ -8,23 +8,34 @@ import com.minabeshara.comfortshoe.models.Shoe
 
 class ShoeViewModel : ViewModel() {
 
-    val shoe = MutableLiveData<Shoe>()
-    
-    private val shoesList = ArrayList<Shoe?>()
+    var shoe = Shoe()
 
-    val shoes : LiveData<MutableList<Shoe?>>
-    get() = _shoes
+    private val shoesList = ArrayList<Shoe?>()
 
     private var _shoes = MutableLiveData<MutableList<Shoe?>>()
 
-    init {
-        shoe.value = Shoe("",0.0,"","")
-        _shoes.value  = shoesList
-    }
+    val shoes : LiveData<MutableList<Shoe?>>
+        get() = _shoes
+
+    private var _navigateToShoeListFragment = MutableLiveData<Boolean>()
+
+    val navigateToShoeListFragment : LiveData<Boolean>
+        get() = _navigateToShoeListFragment
+
 
     fun addShoe(){
-        shoesList.add(shoe.value)
+        Log.i("shoeViewModel", "addShoe: called before adding ShoesList ${shoesList.joinToString()}  shoe : $shoe")
+        shoesList.add(shoe)
+        shoe = Shoe()
+        Log.i("shoeViewModel", "addShoe: called after adding ${shoesList.joinToString()}")
         _shoes.value = shoesList
+
+        _navigateToShoeListFragment.value = true
+        Log.i("shoeViewModel", "addShoe: ${shoesList.joinToString()} ")
+    }
+
+    fun doneNavigatingToShoeList(){
+        _navigateToShoeListFragment.value = false
     }
 
 }

@@ -8,8 +8,14 @@
     </data>
 
     <TextView
+        android:id="@+id/tv_name"
+        android:text="@{shoe.name}"
+        android:layout_margin="16dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
     </TextView>
 </layout>
